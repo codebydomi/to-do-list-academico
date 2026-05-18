@@ -3,24 +3,6 @@ const PRIORITY_ORDER = { alta: 0, media: 1, baixa: 2 };
 let tasks = [
   {
     id: 1,
-    title: "Estudar derivadas e integrais",
-    subject: "Cálculo",
-    type: "Prova",
-    priority: "alta",
-    date: datePlus(1),
-    done: false,
-  },
-  {
-    id: 2,
-    title: "Relatório de laboratório",
-    subject: "Física",
-    type: "Trabalho",
-    priority: "media",
-    date: datePlus(4),
-    done: false,
-  },
-  {
-    id: 3,
     title: "Leitura dos capítulos 8 a 10",
     subject: "História",
     type: "Leitura",
