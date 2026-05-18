@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planner Acadêmico</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Planner <span>Acadêmico</span></h1>
+      <div class="tagline">
+        <p>Organize suas provas e trabalhos por prioridade</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat-card">
+          <div class="num" id="stat-total">0</div>
+          <div class="lbl">Total</div>
+        </div>
+        <div class="stat-card alta">
+          <div class="num" id="stat-alta">0</div>
+          <div class="lbl">Alta prioridade</div>
+        </div>
+        <div class="stat-card concluidas">
+          <div class="num" id="stat-done">0</div>
+          <div class="lbl">Concluídas</div>
+        </div>
+      </div>
+
+      <!-- Formulário -->
+      <div class="form-card">
+        <h2>Nova tarefa</h2>
+        <input
+          type="text"
+          id="inp-title"
+          placeholder="Ex: Estudar capítulo 3 de Cálculo…"
+        />
+        <div class="form-row">
+          <input
+            type="text"
+            id="inp-subject"
+            placeholder="Matéria (ex: Física)"
+          />
+          <select id="inp-type">
+            <option value="Prova">Prova</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Leitura">Leitura</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <select id="inp-priority">
+            <option value="alta">Alta prioridade</option>
+            <option value="media" selected>Média prioridade</option>
+            <option value="baixa">Baixa prioridade</option>
+          </select>
+          <input type="date" id="inp-date" />
+        </div>
+        <button class="btn-add" onclick="addTask()">+ Adicionar tarefa</button>
+      </div>
+
+      <!-- Filtros e ordenação -->
+      <div class="toolbar">
+        <div class="filters">
+          <button
+            class="filter-btn active"
+            data-filter="todas"
+            onclick="setFilter(this)"
+          >
+            Todas
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="alta"
+            onclick="setFilter(this)"
+          >
+            Alta
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="media"
+            onclick="setFilter(this)"
+          >
+            Média
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="baixa"
+            onclick="setFilter(this)"
+          >
+            Baixa
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="done"
+            onclick="setFilter(this)"
+          >
+            Concluídas
+          </button>
+        </div>
+        <div>
+          <select id="sort-select" onchange="render()">
+            <option value="prioridade">↑ Prioridade</option>
+            <option value="data">↑ Data</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Lista -->
+      <div id="task-list"></div>
+    </div>
+
+    <script>
+    </script>
+  </body>
+</html>
