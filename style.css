@@ -1,0 +1,370 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f5f2ec;
+  --surface: #fffef9;
+  --border: #ddd8cc;
+  --text: #1c1a14;
+  --muted: #7a7568;
+  --alta-bg: #fff0f0;
+  --alta-text: #b91c1c;
+  --alta-border: #fca5a5;
+  --media-bg: #fffbeb;
+  --media-text: #92400e;
+  --media-border: #fcd34d;
+  --baixa-bg: #eff6ff;
+  --baixa-text: #1e40af;
+  --baixa-border: #93c5fd;
+  --accent: #2d5be3;
+  --gold: #b8923a;
+  --gold-light: #f7edd6;
+  --gold-border: #dfc07a;
+  --pink: #c4547a;
+  --pink-light: #fceef4;
+  --pink-border: #e8a5bc;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 40px 16px 80px;
+}
+
+header {
+  max-width: 620px;
+  margin: 0 auto 32px;
+}
+
+header h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+header h1 span {
+  color: var(--gold);
+}
+
+header .tagline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header .tagline::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--gold-border);
+  flex-shrink: 0;
+}
+
+header p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.container {
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  text-align: center;
+}
+
+.stat-card .num {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.stat-card .lbl {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-card.alta .num {
+  color: var(--alta-text);
+}
+.stat-card.concluidas .num {
+  color: var(--gold);
+}
+
+/* Formulário */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold-border);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-card h2 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: var(--gold);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: "DM Sans", sans-serif;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px var(--pink-light);
+}
+
+.btn-add {
+  padding: 10px;
+  background: var(--pink);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-add:hover {
+  opacity: 0.88;
+}
+
+/* Filtros */
+.filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-btn {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: 13px;
+  font-family: "DM Sans", sans-serif;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-btn.active {
+  background: var(--pink);
+  color: #fff;
+  border-color: var(--pink);
+}
+
+/* Lista */
+#task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Cartão de tarefa */
+.task {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-left: 4px solid var(--border);
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task.alta {
+  border-left-color: var(--alta-text);
+}
+.task.media {
+  border-left-color: var(--media-text);
+}
+.task.baixa {
+  border-left-color: var(--baixa-text);
+}
+.task.done {
+  opacity: 0.5;
+  border-left-color: var(--gold-border);
+}
+
+.task input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.task-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-title {
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task.done .task-title span:first-child {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.badge.alta {
+  background: var(--alta-bg);
+  color: var(--alta-text);
+  border: 1px solid var(--alta-border);
+}
+.badge.media {
+  background: var(--media-bg);
+  color: var(--media-text);
+  border: 1px solid var(--media-border);
+}
+.badge.baixa {
+  background: var(--baixa-bg);
+  color: var(--baixa-text);
+  border: 1px solid var(--baixa-border);
+}
+
+.task-meta {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
+.task-meta span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.task-meta .vencido {
+  color: var(--alta-text);
+  font-weight: 500;
+}
+.task-meta .urgente {
+  color: var(--media-text);
+  font-weight: 500;
+}
+
+.btn-del {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.btn-del:hover {
+  color: var(--alta-text);
+}
+
+/* Sort */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.sort-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+#sort-select {
+  width: auto;
+  font-size: 13px;
+  padding: 5px 10px;
+}
